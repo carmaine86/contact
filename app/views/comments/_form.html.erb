@@ -1,0 +1,12 @@
+<%= form.fields_for :comments do |comment_form| %>
+  <div class="field">
+    <%= comment_form.label :body, 'comment:' %>
+    <%= comment_form.text_field :body %>
+  </div>
+  <% unless comment_form.object.nil? || comment_form.object.new_record? %>
+    <div class="field">
+      <%= comment_form.label :_destroy, 'Remove:' %>
+      <%= comment_form.check_box :_destroy %>
+    </div>
+  <% end %>
+<% end %>

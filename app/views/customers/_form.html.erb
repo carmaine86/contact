@@ -1,0 +1,41 @@
+<% @customer.comments.build %>
+<%= form_for(@customer) do |customer_form| %>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+      <% @customer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= customer_form.label :name %><br />
+    <%= customer_form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= customer_form.label :surname %><br />
+    <%= customer_form.text_field :surname %>
+  </div>
+  <div class="field">
+    <%= customer_form.label :email %><br />
+    <%= customer_form.text_field :email %>
+  </div>
+  <div class="field">
+    <%= customer_form.label :address %><br />
+    <%= customer_form.text_field :address %>
+  </div>
+  <div class="field">
+    <%= customer_form.label :dateofborn %><br />
+    <%= customer_form.date_select :dateofborn %>
+  </div>
+  <h2>comments</h2>
+  <%= render :partial => 'comments/form',
+             :locals => {:form => customer_form} %>
+  <div class="actions">
+    <%= post_form.submit %>
+  </div>
+<% end %>

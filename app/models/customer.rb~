@@ -1,0 +1,10 @@
+class Customer < ActiveRecord::Base
+  attr_accessible :address, :dateofborn, :email, :name, :surname
+  validates :name,  :presence => true
+  validates :surname, :presence => true
+  validates :email,  :presence => true
+  validates :address, :presence => true,
+                    :length => { :minimum => 5 }
+
+  has_many :products                
+end

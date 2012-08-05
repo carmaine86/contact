@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @customer.name %>
+</p>
+
+<p>
+  <b>Surname:</b>
+  <%= @customer.surname %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @customer.email %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @customer.address %>
+</p>
+
+<p>
+  <b>Dateofborn:</b>
+  <%= @customer.dateofborn %>
+</p>
+<p>
+  <b>comments:</b>
+   <%= join_comments(@customer) %>
+</p>
+ 
+
+<h2>products</h2>
+<%= render @customer.products %>
+ 
+<h2>Add a product:</h2>
+<%= render "products/form" %>
+ 
+<br />
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
